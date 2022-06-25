@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "scripts": {
+    "vercel-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "canvas": "^2.9.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "telegraf": "^4.8.5"
+  }
+}
