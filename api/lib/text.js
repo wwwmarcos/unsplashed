@@ -2,12 +2,8 @@ const { createCanvas, registerFont, Image } = require('canvas')
 const path = require('path')
 
 const FONTS_PATH = path.join(process.cwd(), 'assets', 'fonts')
+
 const FONTS = {
-  BEAU_RIVAGE: {
-    family: 'Beau Rivage',
-    path: path.join(FONTS_PATH, 'BeauRivage-Regular.ttf'),
-    size: 50
-  },
   PUNK_TYPEWRITER: {
     family: 'Punk Typewriter',
     path: path.join(FONTS_PATH, 'PunkTypewriter.otf'),
@@ -15,8 +11,10 @@ const FONTS = {
   }
 }
 
-const setupFont = ({ path, family }) => {
-  registerFont(path, { family })
+const setupFonts = () => {
+  for (const [_, { path, family }] of Object.entries(FONTS)) {
+    registerFont(path, { family })
+  }
 }
 
 const buildCanvas = ({ image: { width, height, path } }) => {
@@ -150,7 +148,7 @@ const applyText = ({ font, text, image: { width, height, path } }) => {
 module.exports = {
   text: {
     applyText,
-    setupFont,
+    setupFonts,
     FONTS
   }
 }
